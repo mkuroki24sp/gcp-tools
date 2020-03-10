@@ -12,9 +12,11 @@ if not os.path.exists('../config.ini'):
     raise FileNotFoundError(errno.ENOENT, os.strerror(errono.ENOENT), '../config.ini')
 config.read('../config.ini')
 
+# load settings
 projects = json.loads(config.get("iam-roles-config","projects"))
 roles = json.loads(config.get("iam-roles-config","roles"))
 
+# read accountname from from stdin
 args = sys.argv
 for project in projects:
     for role in roles:
