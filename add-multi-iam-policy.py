@@ -22,10 +22,8 @@ for project in projects:
     for role in roles:
         commands = 'gcloud projects add-iam-policy-binding ' + project + ' --member user:' + args[1] + ' --role ' + role
         print(commands)
-
-#try:
-#    res = subprocess.check_call(commands)
-#except:
-#    print "Error."
-
-#print res
+        try:
+            res = subprocess.check_call(commands)
+            print res
+        except:
+            print "Command Execute Error."
